@@ -12,8 +12,9 @@ class Prompt extends Component {
       <div className= "prompt">
         <p> {this.props.prompt.body} </p>
         <Stories
-          prompt= {this.props.prompt}
-         stories= {this.props.prompt.stories}/>
+        onShowPrompt = {this.props.onShowPrompt}
+        prompt = {this.props.prompt}
+        stories = {this.props.prompt.stories} />
       </div>
     )
   }
