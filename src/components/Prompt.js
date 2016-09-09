@@ -1,20 +1,33 @@
 import React, {Component} from 'react';
 import Stories from './Stories';
+import CreateStoryForm from './CreateStoryForm';
+import PromptModel from '../models/Prompt';
 
 class Prompt extends Component {
+  constructor(){
+    super()
+    this.state = {
+      prompt: []
+    }
+  }
+  createStory = (storyText) => {
+    console.log(this.props.prompt)
+    var newStory = {body: storyText};
+    console.log(newStory)
+    var prompt = this.props.prompt
+    prompt.stories.push(newStory);
+
+
+  }
   render(){
-    // var stories = this.props.prompt.stories.map((story)=>{
-    //   return (
-    //     <p> {story.body} </p>
-    //   )
-    // })
     return(
-      <div className= "prompt">
+      <div className="prompt">
         <p> {this.props.prompt.body} </p>
         <Stories
-        onShowPrompt = {this.props.onShowPrompt}
-        prompt = {this.props.prompt}
-        stories = {this.props.prompt.stories} />
+        prompt={this.props.prompt}
+        stories={this.props.prompt.stories} />
+        <CreateStoryForm
+        createStory = {this.createStory} />
       </div>
     )
   }

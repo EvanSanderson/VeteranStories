@@ -4,17 +4,17 @@ import Story from './Story';
 class Stories extends Component {
   constructor(){
     super()
-    this.state = {
+    this.state={
       stories: []
     }
   }
-  showStories = () => {
+  showStories=()=> {
     this.setState({
       stories: this.props.prompt.stories
     })
   }
   render(){
-    var stories = this.state.stories.map((story) => {
+    var stories=this.state.stories.map((story)=>{
       return(
         <Story
         key={story._id}
@@ -22,9 +22,8 @@ class Stories extends Component {
       )
     })
     return (
-        <div className = "stories">
+        <div className="stories">
         <button onClick={this.showStories}> Show stories </button>
-        {console.log(this.state.stories)}
         {stories}
         </div>
 

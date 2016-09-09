@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
 import Prompt from './Prompt';
+import PromptModel from '../models/Prompt';
 
 class Prompts extends Component {
   constructor(){
     super()
-    this.state = {
+    this.state ={
       prompt: []
     }
   }
   showPrompt = () => {
-    var prompts = this.props.prompts
-    var prompt = prompts[Math.floor(Math.random()*prompts.length)];
+    var prompts =this.props.prompts
+    var prompt =prompts[Math.floor(Math.random()*prompts.length)];
     this.setState({
       prompt: prompt
     })
   }
-
   render(){
     // var prompts= this.props.prompts.map((prompt)=>{
     //   return (
@@ -25,14 +25,15 @@ class Prompts extends Component {
     //   )
     // })
     return(
-      <div className= "prompts">
+      <div className="prompts">
       <h1> I am the prompts component! </h1>
       <button onClick={this.showPrompt}> Show Prompt </button>
       <Prompt
       key={this.state.prompt._id}
-      prompt={this.state.prompt}
-      onShowPrompt={this.showPrompt}/>
+      prompt={this.state.prompt} />
+
       </div>
+
     )
   }
 }
