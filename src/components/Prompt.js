@@ -2,20 +2,28 @@ import React, {Component} from 'react';
 import Stories from './Stories';
 import CreateStoryForm from './CreateStoryForm';
 import PromptModel from '../models/Prompt';
+import StoryModel from '../models/Story';
 
 class Prompt extends Component {
   constructor(){
     super()
     this.state = {
-      prompt: []
+      prompt: [],
+      stories: []
     }
   }
+  // need to figure out what prompt.stories is and how to get that working
   createStory = (storyText) => {
-    console.log(this.props.prompt)
     var newStory = {body: storyText};
-    console.log(newStory)
     var prompt = this.props.prompt
+    console.log(this.props.prompt)
+    console.log(this.props.prompt.stories);
     prompt.stories.push(newStory);
+    this.setState({
+      prompt: this.props.prompt,
+      stories: this.props.prompt.stories
+    })
+    StoryModel.create(newStory, prompt);
 
 
   }
