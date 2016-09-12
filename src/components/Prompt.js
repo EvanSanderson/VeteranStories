@@ -48,12 +48,17 @@ class Prompt extends Component {
         })
       })
   }
+  showDeleteButton = () => {
+    if (this.state.prompt.body) {
+      return "(delete)"
+    }
+  }
   render(){
     return(
       <div className="prompt">
         <p> {this.state.prompt.body} </p>
         <div className="deleteButton" onClick={() => this.props.deletePrompt(this.state.prompt)}>
-        {this.props.deleteButton}
+          {this.showDeleteButton()}
         </div>
         <UpdatePromptForm
         prompt = {this.props.prompt}
