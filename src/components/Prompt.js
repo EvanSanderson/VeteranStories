@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Stories from './Stories';
 import CreateStoryForm from './CreateStoryForm';
-import PromptModel from '../models/Prompt';
 import StoryModel from '../models/Story';
+import UpdatePromptForm from './UpdatePromptForm';
+import PromptModel from '../models/Prompt';
 
 class Prompt extends Component {
   constructor(){
@@ -12,27 +13,48 @@ class Prompt extends Component {
       stories: []
     }
   }
+  componentDidMount(){
+    this.getPrompts();
+  }
+  getPrompts(){
+    this.setState({
+      prompt: this.props.prompt
+    })
+  }
   // need to figure out what prompt.stories is and how to get that working
   createStory = (storyText) => {
     var newStory = {body: storyText};
     var prompt = this.props.prompt
     StoryModel.create(newStory, prompt).then(function(res){
       var story = res.data.stories[res.data.stories.length -1]
-      console.log(story);
       var stories =this.props.prompt.stories;
       stories.push(story);
       this.setState({
-        prompt: this.props.prompt,
+        prompt: this.state.prompt,
         stories: stories
       })
     }.bind(this));
 
 
   }
+  updatePrompt = (promptText) => {
+      console.log("hello from Prompt container")
+      console.log(promptText);
+      console.log(this.props.prompt._id);
+      var promptId = this.props.prompt._id;
+      PromptModel.update(promptId, promptText).then((res) => {
+        this.setState({
+          prompt: res.data
+        })
+      })
+  }
   render(){
     return(
       <div className="prompt">
-        <p> {this.props.prompt.body} </p>
+        <p> {this.state.prompt.body} </p>
+        <UpdatePromptForm
+        prompt = {this.props.prompt}
+        updatePrompt = {this.updatePrompt}/>
         <Stories
         prompt={this.props.prompt}
         stories={this.props.prompt.stories} />

@@ -15,7 +15,6 @@ class PromptsContainer extends Component{
   }
   getPrompts(){
     PromptModel.all().then((res) => {
-      console.log(res.data)
       this.setState ({
         prompts: res.data,
       })

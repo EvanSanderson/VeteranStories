@@ -12,6 +12,10 @@ PromptModel.create = function(prompt){
   return request;
 }
 
+PromptModel.update = function(promptId, promptText){
+  var request = axios.put(`http://localhost:3002/prompts/${promptId}`, {body: promptText})
+  return request;
+}
 
 
 module.exports = PromptModel
