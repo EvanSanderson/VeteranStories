@@ -15,19 +15,25 @@ class PromptsContainer extends Component{
   }
   getPrompts(){
     PromptModel.all().then((res) => {
+      console.log(res.data)
       this.setState ({
-        prompts: res.data
+        prompts: res.data,
       })
     })
   }
   createPrompt = (promptText) => {
     var prompt = {body: promptText}
-    var prompts = this.state.prompts
-    prompts.push(prompt)
-    this.setState({
-      prompts: prompts
-    })
-    PromptModel.create(prompt)
+    PromptModel.create(prompt).then(function(res){
+      var prompts = this.state.prompts;
+      prompts.push(res.data);
+      console.log("before promps");
+      console.log(prompts);
+      this.setState({
+        prompts: prompts
+      })
+    }.bind(this))
+    console.log(this.state.prompts)
+    // prompts.push(prompt)
   }
 
   render(){
