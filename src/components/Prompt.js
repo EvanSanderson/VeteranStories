@@ -16,14 +16,16 @@ class Prompt extends Component {
   createStory = (storyText) => {
     var newStory = {body: storyText};
     var prompt = this.props.prompt
-    console.log(this.props.prompt)
-    console.log(this.props.prompt.stories);
-    prompt.stories.push(newStory);
-    this.setState({
-      prompt: this.props.prompt,
-      stories: this.props.prompt.stories
-    })
-    StoryModel.create(newStory, prompt);
+    StoryModel.create(newStory, prompt).then(function(res){
+      var story = res.data.stories[res.data.stories.length -1]
+      console.log(story);
+      var stories =this.props.prompt.stories;
+      stories.push(story);
+      this.setState({
+        prompt: this.props.prompt,
+        stories: stories
+      })
+    }.bind(this));
 
 
   }

@@ -15,7 +15,7 @@ class Stories extends Component {
   }
   render(){
     var stories=this.state.stories.map((story)=>{
-      return(
+      return (
         <Story
         key={story._id}
         story={story} />
