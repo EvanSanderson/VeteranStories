@@ -13,12 +13,15 @@ class Stories extends Component {
       stories: this.props.prompt.stories
     })
   }
+
   render(){
     var stories=this.state.stories.map((story)=>{
       return (
         <Story
         key={story._id}
-        story={story} />
+        story={story}
+        prompt={this.props.prompt}
+        />
       )
     })
     return (

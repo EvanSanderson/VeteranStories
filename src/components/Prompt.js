@@ -14,9 +14,9 @@ class Prompt extends Component {
     }
   }
   componentDidMount(){
-    this.getPrompts();
+    this.getPrompt();
   }
-  getPrompts(){
+  getPrompt(){
     this.setState({
       prompt: this.props.prompt
     })

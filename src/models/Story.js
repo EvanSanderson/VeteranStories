@@ -7,4 +7,8 @@ StoryModel.create = function(story, prompt){
   return request;
 }
 
+StoryModel.update = function(prompt, storyId, storyText){
+  var request = axios.put(`http://localhost:3002/prompts/${prompt._id}/stories/${storyId}`, {body: storyText})
+  return request;
+}
 export default StoryModel;
