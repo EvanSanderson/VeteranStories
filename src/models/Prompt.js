@@ -17,5 +17,9 @@ PromptModel.update = function(promptId, promptText){
   return request;
 }
 
+PromptModel.delete = function(promptId){
+  var request = axios.delete(`http://localhost:3002/prompts/${promptId}`)
+  return request;
+}
 
 module.exports = PromptModel

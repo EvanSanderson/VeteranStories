@@ -15,20 +15,24 @@ class Prompts extends Component {
       prompt: prompt
     })
   }
-  render(){
+  deleteButton = "X"
 
+  render(){
     return(
       <div className="prompts">
       <h1> I am the prompts component! </h1>
       <button onClick={this.showPrompt}> Show Prompt </button>
       <Prompt
       key={this.state.prompt._id}
-      prompt={this.state.prompt} />
+      prompt={this.state.prompt}
+      deleteButton={this.deleteButton}
+      deletePrompt={this.props.deletePrompt}/>
 
       </div>
 
     )
   }
 }
+
 
 export default Prompts

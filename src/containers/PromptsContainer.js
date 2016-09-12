@@ -34,6 +34,18 @@ class PromptsContainer extends Component{
     console.log(this.state.prompts)
     // prompts.push(prompt)
   }
+  deletePrompt = (prompt) => {
+    console.log(prompt)
+    console.log("Hello from container!")
+    var promptId = prompt._id
+    PromptModel.delete(promptId).then((res)=>{
+      var prompts = this.state.prompts
+      var promptsMinusDeleted = prompts.filter((eachPrompt)=>!(eachPrompt._id === prompt._id))
+      this.setState({
+        prompts: promptsMinusDeleted
+      })
+    })
+  }
 
   render(){
     return(
@@ -41,7 +53,8 @@ class PromptsContainer extends Component{
       <CreatePromptForm
       createPrompt = {this.createPrompt}/>
         <Prompts
-        prompts={this.state.prompts} />
+        prompts={this.state.prompts}
+        deletePrompt={this.deletePrompt} />
       </div>
     )
   }
