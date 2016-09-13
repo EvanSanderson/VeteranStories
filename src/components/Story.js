@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import UpdateStoryForm from './UpdateStoryForm';
 import StoryModel from '../models/Story';
+import Tag from './Tag';
 
 class Story extends Component {
   constructor(){
     super();
     this.state = {
-      story: []
+      story: [],
+      tags: []
     }
   }
   componentDidMount(){
@@ -14,7 +16,8 @@ class Story extends Component {
   }
   getStory(){
     this.setState({
-      story: this.props.story
+      story: this.props.story,
+      tags: this.props.story.tags
     })
   }
   updateStory = (storyText) => {
@@ -34,12 +37,30 @@ class Story extends Component {
     })
 
   }
+  addTag = (tag) => {
+    var promptId = this.props.prompt._id
+    console.log(this.props)
+    var storyId = this.props.story._id
+    StoryModel.addTag(promptId, storyId, tag).then((res) =>{
+        console.log(res)
+    })
+    this.state.tags.push(tag);
+    this.setState({
+      tags: this.state.tags
+    })
+  }
+
+
   render(){
     return(
       <div className="story">
           <p> {this.state.story.body} </p>
-          <UpdateStoryForm
-            updateStory = {this.updateStory}/>
+          {this.state.tags.map((tag)=>{
+            return <p key={Math.random()}> {tag} </p>
+          })}
+            <UpdateStoryForm
+            updateStory = {this.updateStory}
+            addTag = {this.addTag}/>
             <button className="deleteButton" onClick={() => this.props.deleteStory(this.state.story)}>Delete</button>
       </div>
     )
