@@ -40,6 +40,7 @@ class Story extends Component {
           <p> {this.state.story.body} </p>
           <UpdateStoryForm
             updateStory = {this.updateStory}/>
+            <button className="deleteButton" onClick={() => this.props.deleteStory(this.state.story)}>Delete</button>
       </div>
     )
   }

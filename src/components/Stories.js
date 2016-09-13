@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Story from './Story';
+import StoryModel from '../models/Story';
 
 class Stories extends Component {
   constructor(){
@@ -13,6 +14,19 @@ class Stories extends Component {
       stories: this.props.prompt.stories
     })
   }
+  deleteStory = (story) => {
+    console.log(story._id)
+    var promptId = this.props.prompt._id
+    var storyId = story._id
+    StoryModel.delete(promptId, storyId).then((res)=>{
+      console.log(res.data.stories)
+      var stories = res.data.stories
+      this.setState({
+        stories: stories
+      })
+    })
+
+  }
 
   render(){
     var stories=this.state.stories.map((story)=>{
@@ -21,6 +35,7 @@ class Stories extends Component {
         key={story._id}
         story={story}
         prompt={this.props.prompt}
+        deleteStory={this.deleteStory}
         />
       )
     })
