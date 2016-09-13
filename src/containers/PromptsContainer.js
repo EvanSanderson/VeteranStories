@@ -7,7 +7,8 @@ class PromptsContainer extends Component{
   constructor(){
     super()
     this.state = {
-      prompts: []
+      prompts: [],
+      stories: []
     }
   }
   componentDidMount(){

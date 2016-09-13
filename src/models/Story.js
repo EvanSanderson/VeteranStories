@@ -2,6 +2,11 @@ import axios from 'axios';
 
 function StoryModel(){};
 
+StoryModel.all = function(){
+  var request = axios.get("http://localhost:3002/stories")
+  return request;
+}
+
 StoryModel.addTag = function(promptId, storyId, tag) {
   var request = axios.put(`http://localhost:3002/prompts/${promptId}/stories/${storyId}/addTag`, {tag: tag})
   return request;
