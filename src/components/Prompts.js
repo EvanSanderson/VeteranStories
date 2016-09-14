@@ -15,7 +15,6 @@ class Prompts extends Component {
       prompt: prompt
     })
   }
-  deleteButton = "X"
 
   render(){
     return(

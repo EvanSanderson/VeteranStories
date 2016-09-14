@@ -33,16 +33,7 @@ class Stories extends Component {
   }
 
   render(){
-    // var stories=this.state.stories.map((story)=>{
-    //   return (
-    //     <Story
-    //     key={story._id}
-    //     story={story}
-    //     prompt={this.props.prompt}
-    //     deleteStory={this.deleteStory}
-    //     />
-    //   )
-    // })
+    if (this.props.prompt.stories) {
     return (
         <div className="stories">
         <button onClick={this.showStories}> Show stories </button>
@@ -58,6 +49,11 @@ class Stories extends Component {
         </div>
 
     )
+  } else {
+    return (
+      <h1> Choose a prompt by clicking above. </h1>
+    )
+  }
   }
 }
 

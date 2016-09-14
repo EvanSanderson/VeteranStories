@@ -66,8 +66,8 @@ class Story extends Component {
               className="tags"
               component="ul"
               transitionName="tags"
-              transitionEnterTimeout={5000}
-              transitionLeaveTimeout={5000}>
+              transitionEnterTimeout={1000}
+              transitionLeaveTimeout={1000}>
               {Object.keys(this.state.tags).map(this.renderTag)}
           </CSSTransitionGroup>
             <UpdateStoryForm
@@ -76,6 +76,7 @@ class Story extends Component {
             <button className="deleteButton" onClick={() => this.props.deleteStory(this.state.story)}>Delete</button>
       </div>
     )
+
   }
 }
 

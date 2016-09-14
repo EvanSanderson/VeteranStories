@@ -7,7 +7,7 @@ body {
 .tags-enter {
   background:blue;
   transform: translateX(-120%);
-  transition: 5s;
+  transition: 1s;
 }
 
 .tags-enter.tags-enter-active{

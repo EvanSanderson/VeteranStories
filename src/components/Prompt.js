@@ -54,6 +54,7 @@ class Prompt extends Component {
     }
   }
   render(){
+    if(this.state.prompt.body !== undefined){
     return(
       <div className="prompt">
         <p> {this.state.prompt.body} </p>
@@ -73,6 +74,12 @@ class Prompt extends Component {
       </div>
     )
   }
+  else {
+    return(
+      <div></div>
+    )
+  }
+}
 }
 
 export default Prompt;
