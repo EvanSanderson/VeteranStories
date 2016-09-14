@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Story from './Story';
 import StoryModel from '../models/Story';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Stories extends Component {
   constructor(){
@@ -27,22 +28,33 @@ class Stories extends Component {
     })
 
   }
+  renderStory = (key)=>{
+    return <Story key={key} index={key} prompt={this.props.prompt} deleteStory = {this.deleteStory} story={this.state.stories[key]}/>
+  }
 
   render(){
-    var stories=this.state.stories.map((story)=>{
-      return (
-        <Story
-        key={story._id}
-        story={story}
-        prompt={this.props.prompt}
-        deleteStory={this.deleteStory}
-        />
-      )
-    })
+    // var stories=this.state.stories.map((story)=>{
+    //   return (
+    //     <Story
+    //     key={story._id}
+    //     story={story}
+    //     prompt={this.props.prompt}
+    //     deleteStory={this.deleteStory}
+    //     />
+    //   )
+    // })
     return (
         <div className="stories">
         <button onClick={this.showStories}> Show stories </button>
-        {stories}
+
+        <CSSTransitionGroup
+          className="stories"
+          component="div"
+          transitionName="stories"
+          transitionEnterTimeout={5000}
+          transitionLeaveTimeout={5000}>
+        {Object.keys(this.state.stories).map(this.renderStory)}
+        </CSSTransitionGroup>
         </div>
 
     )

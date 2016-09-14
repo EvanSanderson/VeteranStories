@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import UpdateStoryForm from './UpdateStoryForm';
 import StoryModel from '../models/Story';
 import Tag from './Tag';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Story extends Component {
   constructor(){
@@ -49,15 +50,26 @@ class Story extends Component {
       tags: this.state.tags
     })
   }
+  renderTag = (key) => {
+    return <Tag key={key} index={key} tag={this.state.tags[key]} />
+  }
 
 
   render(){
     return(
       <div className="story">
-          <p> {this.state.story.body} </p>
-          {this.state.tags.map((tag)=>{
-            return <p key={Math.random()}> {tag} </p>
-          })}
+          <p>
+          {this.state.story.body}
+          </p>
+          <h3> Tags </h3>
+          <CSSTransitionGroup
+              className="tags"
+              component="ul"
+              transitionName="tags"
+              transitionEnterTimeout={5000}
+              transitionLeaveTimeout={5000}>
+              {Object.keys(this.state.tags).map(this.renderTag)}
+          </CSSTransitionGroup>
             <UpdateStoryForm
             updateStory = {this.updateStory}
             addTag = {this.addTag}/>

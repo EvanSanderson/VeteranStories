@@ -3,3 +3,131 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.tags-enter {
+  background:blue;
+  transform: translateX(-120%);
+  transition: 5s;
+}
+
+.tags-enter.tags-enter-active{
+  transform: translateX(0);
+  background: green;
+}
+
+.stories-enter {
+  background:blue;
+  transform: translateX(-120%);
+  transition: 5s;
+}
+
+.stories-enter.stories-enter-active{
+  transform: translateX(0);
+  background: green;
+}
+
+header {
+  text-align: right;
+  padding-right: 1%;
+}
+
+.header {
+  text-align: center;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 43%;
+    font-size: 16px;
+
+}
+
+.button:hover {
+  background: blue;
+}
+
+.story {
+  text-align: center;
+display: inline-block;
+padding: 1%;
+border: 2px solid black;
+margin-left: 1%;
+margin-top: 1em;
+}
+
+.prompt {
+  text-align: center;
+}
+
+.deleteButton {
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 1em;
+}
+
+.deleteButton:hover{
+  background: blue;
+}
+
+li{
+  list-style: none;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+.createStoryForm {
+  margin-top: 4em;
+  margin-bottom: 2em;
+}
+
+.createStoryInput {
+  width: 40em;
+  height: 10em;
+  text-align: center;
+}
+
+.stories {
+  margin-top: 2em;
+}
+
+.tag {
+  display: inline-block;
+    margin: 0 1em 0 1em;
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+.addTag {
+  margin-top: 1em;
+}
+
+.storyButtons {
+  border: none;
+  border-radius: 10px;
+  padding: .5em;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 1em;
+  margin-left: 1em;
+}

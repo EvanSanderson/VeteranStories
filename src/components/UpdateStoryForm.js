@@ -30,13 +30,13 @@ class UpdateStoryForm extends Component {
         <input
           onChange = {(e) => this.storyChange(e)}
           value = {(this.state && this.state.story) || ''} />
-        <button type="submit"> Update Story </button>
+        <button type="submit" className="storyButtons"> Update Story </button>
       </form>
-      <form onSubmit={(e) => this.addTag(e)}>
+      <form className = "addTag" onSubmit={(e) => this.addTag(e)}>
       <input
         placeholder = "Add A Tag"
         ref = "tag"/>
-        <button type="submit"> Add Tag </button>
+        <button type="submit" className="storyButtons"> Add Tag </button>
         </form>
       </div>
     )

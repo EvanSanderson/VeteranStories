@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Tag extends Component {
   render(){
     return(
-      <p> {this.props.tag}</p>
+      <li className = "tag"> {this.props.tag}</li>
     )
   }
 }

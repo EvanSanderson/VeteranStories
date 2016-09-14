@@ -12,6 +12,7 @@ class CreateStoryForm extends Component {
       <div className="storyForm">
         <form onSubmit={(e) => this.submitStory(e)}>
           <input
+            className = "createStoryInput"
             placeholder="Enter your story here"
             type="text"
             ref="body" />

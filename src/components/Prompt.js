@@ -63,11 +63,13 @@ class Prompt extends Component {
         <UpdatePromptForm
         prompt = {this.props.prompt}
         updatePrompt = {this.updatePrompt}/>
+        <div className ="createStoryForm">
+        <CreateStoryForm
+        createStory = {this.createStory} />
+        </div>
         <Stories
         prompt={this.props.prompt}
         stories={this.props.prompt.stories} />
-        <CreateStoryForm
-        createStory = {this.createStory} />
       </div>
     )
   }

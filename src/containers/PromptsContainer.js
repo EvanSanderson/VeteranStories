@@ -51,11 +51,11 @@ class PromptsContainer extends Component{
   render(){
     return(
       <div>
-      <CreatePromptForm
-      createPrompt = {this.createPrompt}/>
         <Prompts
         prompts={this.state.prompts}
         deletePrompt={this.deletePrompt} />
+        <CreatePromptForm
+        createPrompt = {this.createPrompt}/>
       </div>
     )
   }
