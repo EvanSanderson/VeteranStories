@@ -44,6 +44,7 @@ class Prompt extends Component {
       console.log(this.props.prompt._id);
       var promptId = this.props.prompt._id;
       PromptModel.update(promptId, promptText).then((res) => {
+        console.log(res.data);
         this.setState({
           prompt: res.data
         })
@@ -86,7 +87,7 @@ class Prompt extends Component {
   } else if(!this.state.viewPrompt){
     return (
       <UpdatePromptForm
-      prompt = {this.props.prompt}
+      prompt = {this.state.prompt}
       updatePrompt = {this.updatePrompt}
       undoUpdate = {this.undoUpdate} />
   )

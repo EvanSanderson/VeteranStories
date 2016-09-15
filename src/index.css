@@ -16,7 +16,7 @@ body {
 }
 
 .stories-enter {
-  background:blue;
+  background: blue;
   transform: translateX(-120%);
   transition: 5s;
 }
