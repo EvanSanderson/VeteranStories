@@ -7,14 +7,6 @@ class UpdatePromptForm extends Component {
       body: this.props.prompt.body
     }
   }
-  // componentDidMount = () =>{
-  //   this.fetchState()
-  // }
-  // fetchState = () => {
-  //   this.setState({
-  //     body: this.props.prompt.body
-  //   })
-  // }
   updateChange=(e)=> {
       this.setState({
         body: e.target.value
@@ -31,13 +23,13 @@ class UpdatePromptForm extends Component {
   }
   render(){
     return(
-      <form className = "updateForm" onSubmit={(e) => this.onUpdatePrompt(e)} >
+      <form className="updatePromptForm" onSubmit={(e) => this.onUpdatePrompt(e)} >
         <input
           type="text"
-          onChange = {(e) => this.updateChange(e)}
+          onChange={(e) => this.updateChange(e)}
           value={(this.state && this.state.body) || ""}
            />
-          <button type="submit"> Update </button>
+          <button className="button" type="submit"> Update </button>
       </form>
     )
   }

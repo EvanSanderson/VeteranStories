@@ -1,43 +1,43 @@
 import React, {Component} from 'react';
 
 class UpdateStoryForm extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      story: []
+      body: this.props.story.body
     }
   }
   storyChange = (e) => {
     this.setState({
-      story: e.target.value
+      body: e.target.value
     })
   }
   updateStory = (e) => {
     e.preventDefault();
-    var storyText = this.state.story
+    var storyText = this.state.body
     this.props.updateStory(storyText)
-    this.state.story = "";
     this.props.undoUpdateStory();
   }
   addTag = (e) => {
     e.preventDefault();
-    var tag = this.refs.tag.value;
+    var tag=this.refs.tag.value;
     this.props.addTag(tag)
   }
   render(){
     return(
       <div>
-      <form onSubmit={(e) => this.updateStory(e)}>
+      <form onSubmit={(e)=>this.updateStory(e)}>
         <input
-          onChange = {(e) => this.storyChange(e)}
-          value = {(this.state && this.state.story) || ''} />
-        <button type="submit" className="storyButtons"> Update Story </button>
+          className="storyChange"
+          onChange={(e)=>this.storyChange(e)}
+          value={(this.state && this.state.body) || ''} />
+        <button type="submit" className="button"> Update Story </button>
       </form>
-      <form className = "addTag" onSubmit={(e) => this.addTag(e)}>
+      <form className="addTag" onSubmit={(e)=>this.addTag(e)}>
       <input
-        placeholder = "Add A Tag"
-        ref = "tag"/>
-        <button type="submit" className="storyButtons"> Add Tag </button>
+        placeholder="Add A Tag"
+        ref="tag"/>
+        <button type="submit" className="button"> Add Tag </button>
         </form>
       </div>
     )

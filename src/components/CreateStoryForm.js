@@ -12,11 +12,11 @@ class CreateStoryForm extends Component {
       <div className="storyForm">
         <form onSubmit={(e) => this.submitStory(e)}>
           <input
-            className = "createStoryInput"
+            className="createStoryInput"
             placeholder="Enter your story here"
             type="text"
             ref="body" />
-            <button type="submit"> + Story </button>
+            <button className = "button" type="submit"> + Story </button>
           </form>
       </div>
     )

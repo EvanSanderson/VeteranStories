@@ -9,12 +9,12 @@ class CreatePromptForm extends Component {
   }
   render(){
     return(
-      <form onSubmit={(e)=> this.submitPrompt(e)}>
+      <form className="CreatePromptForm" onSubmit={(e)=> this.submitPrompt(e)}>
         <input
           placeholder="Enter a new prompt here"
           type="text"
           ref="body" />
-          <button type="submit"> + Prompt </button>
+          <button className="button" type="submit"> + Prompt </button>
         </form>
     )
   }

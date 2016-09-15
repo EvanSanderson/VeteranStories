@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import StoryModel from '../models/Story';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 class StoriesContainer extends Component {
   constructor(){
@@ -39,24 +40,32 @@ class StoriesContainer extends Component {
           searchedStories: stories
         })
       }
+      // renderRead = (key) => {
+      //   return <div key={key} index={key}>{story.body}</div>
+      // }
   render(){
-    var stories = this.state.searchedStories.map((story)=>{
-      return <p key={Math.random()}> {story.body} </p>
+    var stories=this.state.searchedStories.map((story)=>{
+      return <p className="read" key={Math.random()}> {story.body} </p>
     })
     return(
       <div>
-      <h1> Stories </h1>
-       {stories}
-       <form onSubmit={(e) => this.searchStories(e)}>
-        <input
-          placeholder = "Search stories"
-          ref = "input" />
-        <button type = "submit"> Search </button>
-        </form>
+      <form className ="searchForm" onSubmit={(e) => this.searchStories(e)}>
+      <input
+      placeholder="Search stories"
+      ref="input" />
+      <button type="submit"> Search </button>
+      </form>
+      <h3 className="searchTags"> Search for stories by tags. </h3>
+       <CSSTransitionGroup
+        component="div"
+        transitionName="reads"
+        transitionEnterTimeout={1000}
+        transitionLeaveTimeout={1000}>
+        {stories}
+        </CSSTransitionGroup>
       </div>
     )
   }
 }
 
 export default StoriesContainer;
-/* eslint-disable */

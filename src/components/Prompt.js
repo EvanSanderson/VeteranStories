@@ -52,7 +52,7 @@ class Prompt extends Component {
   }
   showDeleteButton = () => {
     if (this.state.prompt.body) {
-      return "(delete)"
+      return <button> Delete </button>
     }
   }
   onUpdateClick= () => {
@@ -71,25 +71,27 @@ class Prompt extends Component {
         if(this.state.viewPrompt){
     return(
       <div className="prompt">
-        <p onClick={()=> this.onUpdateClick()}> {this.state.prompt.body} </p>
-        <div className="deleteButton" onClick={() => this.props.deletePrompt(this.state.prompt)}>
-          {this.showDeleteButton()}
-        </div>
-        <div className ="createStoryForm">
-        <CreateStoryForm
-        createStory = {this.createStory} />
-        </div>
-        <Stories
-        prompt={this.props.prompt}
-        stories={this.props.prompt.stories} />
+        <div className="promptText">
+            <p onClick={()=> this.onUpdateClick()}> {this.state.prompt.body} </p>
+              <div className="promptDeleteButton" onClick={() => this.props.deletePrompt(this.state.prompt)}>
+                {this.showDeleteButton()}
+                </div>
+              </div>
+              <div className="createStoryForm">
+              <CreateStoryForm
+              createStory={this.createStory} />
+              </div>
+              <Stories
+              prompt={this.props.prompt}
+              stories={this.props.prompt.stories} />
       </div>
     )
   } else if(!this.state.viewPrompt){
     return (
       <UpdatePromptForm
-      prompt = {this.state.prompt}
-      updatePrompt = {this.updatePrompt}
-      undoUpdate = {this.undoUpdate} />
+      prompt={this.state.prompt}
+      updatePrompt={this.updatePrompt}
+      undoUpdate={this.undoUpdate} />
   )
   }
   }

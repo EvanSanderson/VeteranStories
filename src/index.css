@@ -1,30 +1,41 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .tags-enter {
-  background:blue;
+  background-color:#465362;
   transform: translateX(-120%);
   transition: 1s;
 }
 
 .tags-enter.tags-enter-active{
   transform: translateX(0);
-  background: green;
+  background-color: #C8C1C0;
 }
 
 .stories-enter {
-  background: blue;
+  background: #465362;
   transform: translateX(-120%);
   transition: 5s;
 }
 
 .stories-enter.stories-enter-active{
   transform: translateX(0);
-  background: green;
+  background: #C8C1C0;
 }
+
+.reads-enter {
+  transform: translateX(-120%);
+  transition: 1s;
+}
+
+.reads-enter.reads-enter-active{
+  transform: translateX(0);
+}
+
+
 
 header {
   text-align: right;
@@ -35,38 +46,38 @@ header {
   text-align: center;
 }
 
-.button {
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-left: 43%;
-    font-size: 16px;
-
-}
-
-.button:hover {
-  background: blue;
-}
-
 .story {
   text-align: center;
 display: inline-block;
+border-radius: 10px;
 padding: 1%;
-border: 2px solid black;
 margin-left: 1%;
 margin-top: 1em;
+color: white;
+background: #C8C1C0;
 }
 
 .prompt {
   text-align: center;
 }
 
-.deleteButton {
+
+.promptText {
+  background: #C8C1C0;
+  padding: 1em;
+  color:white;
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 2em;
+  border-radius: 5%;
+}
+
+
+.promptDeleteButton button{
   border: none;
-  color: black;
+  border-radius: 10px;
+  padding: .5em;
+  color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -74,8 +85,8 @@ margin-top: 1em;
   margin-top: 1em;
 }
 
-.deleteButton:hover{
-  background: blue;
+.promptDeleteButton button:hover {
+  background: #80A1C1;
 }
 
 li{
@@ -103,6 +114,8 @@ ul, menu, dir {
   text-align: center;
 }
 
+
+
 .stories {
   margin-top: 2em;
 }
@@ -119,11 +132,35 @@ ul, menu, dir {
   margin-top: 1em;
 }
 
-.storyButtons {
+
+.updatePromptForm {
+  text-align: center;
+  margin: 1em 1em;
+}
+
+
+.storyChange {
+  width: 20em;
+  height: 10em;
+}
+
+.read {
+  display: inline-block;
+  border: 2px solid black;
+  margin: 1em 1em;
+  padding: 1em;
+}
+
+.searchForm {
+  text-align: center;
+}
+
+.searchForm button {
   border: none;
   border-radius: 10px;
   padding: .5em;
-  color: black;
+  color: white;
+  background: #465362;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -132,6 +169,52 @@ ul, menu, dir {
   margin-left: 1em;
 }
 
-.updateForm {
+.searchTags {
   text-align: center;
+}
+
+.CreatePromptForm {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+
+.CreatePromptForm input {
+  width: 20em;
+}
+
+
+.button {
+  border: none;
+  border-radius: 10px;
+  padding: .5em;
+  color: white;
+  text-align: center;
+  background: #465362;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+.button:hover {
+  background: #80A1C1;
+}
+
+.getPromptButton {
+  margin-left: 40%;
+  border: none;
+  border-radius: 10px;
+  padding: .5em;
+  color: white;
+  background: #465362;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.getPromptButton:hover {
+  background: #80A1C1;
 }

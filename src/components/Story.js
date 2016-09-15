@@ -29,7 +29,7 @@ class Story extends Component {
     var storyId = this.props.story._id
     StoryModel.update(prompt, storyId, storyText).then((res)=>{
       for(var i=0; i<res.data.stories.length; i++){
-        if(res.data.stories[i]._id == storyId){
+        if(res.data.stories[i]._id === storyId){
           console.log("FOUND MATCH")
           this.setState({
             story: res.data.stories[i]
@@ -76,9 +76,10 @@ class Story extends Component {
     return(
       <div>
       <UpdateStoryForm
-      undoUpdateStory = {this.undoUpdateStory}
-      updateStory = {this.updateStory}
-      addTag = {this.addTag}/>
+      story={this.state.story}
+      undoUpdateStory={this.undoUpdateStory}
+      updateStory={this.updateStory}
+      addTag={this.addTag}/>
       </div>
     )
   }
@@ -96,7 +97,7 @@ class Story extends Component {
               transitionLeaveTimeout={1}>
               {Object.keys(this.state.tags).map(this.renderTag)}
           </CSSTransitionGroup>
-          <button className="deleteButton" onClick={() => this.props.deleteStory(this.state.story)}>Delete</button>
+          <button className="button" onClick={() => this.props.deleteStory(this.state.story)}>Delete</button>
       </div>
     )
   }

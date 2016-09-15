@@ -29,14 +29,14 @@ class Stories extends Component {
 
   }
   renderStory = (key)=>{
-    return <Story key={key} index={key} prompt={this.props.prompt} deleteStory = {this.deleteStory} story={this.state.stories[key]}/>
+    return <Story key={key} index={key} prompt={this.props.prompt} deleteStory={this.deleteStory} story={this.state.stories[key]}/>
   }
 
   render(){
     if (this.props.prompt.stories) {
     return (
         <div className="stories">
-        <button onClick={this.showStories}> Show stories </button>
+        <button className = "button" onClick={this.showStories}> Show stories </button>
 
         <CSSTransitionGroup
           className="stories"

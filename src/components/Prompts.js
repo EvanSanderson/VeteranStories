@@ -18,8 +18,8 @@ class Prompts extends Component {
 
   render(){
     return(
-      <div className="prompts">
-      <button className= "button" onClick={this.showPrompt}> Get A Prompt </button>
+      <div>
+      <button className="getPromptButton" onClick={this.showPrompt}> Get A Prompt </button>
       <Prompt
       key={this.state.prompt._id}
       prompt={this.state.prompt}
