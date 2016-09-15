@@ -36,14 +36,14 @@ class Stories extends Component {
     if (this.props.prompt.stories) {
     return (
         <div className="stories">
-        <button className = "button" onClick={this.showStories}> Show stories </button>
+        <div className="showStoriesButton" onClick={this.showStories}> Show stories </div>
 
         <CSSTransitionGroup
           className="stories"
           component="div"
           transitionName="stories"
           transitionEnterTimeout={5000}
-          transitionLeaveTimeout={1}>
+          transitionLeaveTimeout={1000}>
         {Object.keys(this.state.stories).map(this.renderStory)}
         </CSSTransitionGroup>
         </div>

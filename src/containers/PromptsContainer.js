@@ -8,7 +8,8 @@ class PromptsContainer extends Component{
     super()
     this.state = {
       prompts: [],
-      stories: []
+      stories: [],
+      prompt: []
     }
   }
   componentDidMount(){
@@ -40,21 +41,32 @@ class PromptsContainer extends Component{
     console.log("Hello from container!")
     var promptId = prompt._id
     PromptModel.delete(promptId).then((res)=>{
+      console.log(res.data)
       var prompts = this.state.prompts
       var promptsMinusDeleted = prompts.filter((eachPrompt)=>!(eachPrompt._id === prompt._id))
-      this.setState({
-        prompts: promptsMinusDeleted
-      })
+      this.getPrompts();
+      this.showPrompt();
+    })
+  }
+  showPrompt = () => {
+    var prompts=this.state.prompts
+    console.log(prompts)
+    var prompt=prompts[Math.floor(Math.random()*prompts.length)];
+    this.setState({
+      prompt: prompt
     })
   }
 
   render(){
     return(
       <div>
+      <div className="getPromptButton" onClick={this.showPrompt}> Get A Prompt </div>
         <CreatePromptForm
         createPrompt={this.createPrompt}/>
         <Prompts
+        showPrompt = {this.showPrompt}
         prompts={this.state.prompts}
+        prompt={this.state.prompt}
         deletePrompt={this.deletePrompt} />
       </div>
     )

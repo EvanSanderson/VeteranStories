@@ -59,7 +59,7 @@ class StoriesContainer extends Component {
        <CSSTransitionGroup
         component="div"
         transitionName="reads"
-        transitionEnterTimeout={1000}
+        transitionEnterTimeout={3000}
         transitionLeaveTimeout={1000}>
         {stories}
         </CSSTransitionGroup>

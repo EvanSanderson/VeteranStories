@@ -51,7 +51,7 @@ class Prompt extends Component {
       })
   }
   showDeleteButton = () => {
-    if (this.state.prompt.body) {
+    if (this.state.prompt.body !== undefined) {
       return <button> Delete </button>
     }
   }
@@ -72,18 +72,18 @@ class Prompt extends Component {
     return(
       <div className="prompt">
         <div className="promptText">
-            <p onClick={()=> this.onUpdateClick()}> {this.state.prompt.body} </p>
-              <div className="promptDeleteButton" onClick={() => this.props.deletePrompt(this.state.prompt)}>
-                {this.showDeleteButton()}
-                </div>
+            <p className="promptTextBody" onClick={()=> this.onUpdateClick()}> {this.state.prompt.body} </p>
+            <div className="promptDeleteButton" onClick={() => this.props.deletePrompt(this.state.prompt)}>
+            {this.showDeleteButton()}
+            </div>
               </div>
               <div className="createStoryForm">
               <CreateStoryForm
               createStory={this.createStory} />
               </div>
               <Stories
-              prompt={this.props.prompt}
-              stories={this.props.prompt.stories} />
+              prompt={this.state.prompt}
+              stories={this.state.prompt.stories} />
       </div>
     )
   } else if(!this.state.viewPrompt){

@@ -67,7 +67,7 @@ class Story extends Component {
   }
   showStoryBody = () => {
     return (
-    <p onClick={(e)=>this.onUpdateStory()}>
+    <p className="storyTextBody" onClick={(e)=>this.onUpdateStory()}>
     {this.state.story.body}
     </p>
   )

@@ -8,21 +8,13 @@ class Prompts extends Component {
       prompt: []
     }
   }
-  showPrompt = () => {
-    var prompts=this.props.prompts
-    var prompt=prompts[Math.floor(Math.random()*prompts.length)];
-    this.setState({
-      prompt: prompt
-    })
-  }
 
   render(){
     return(
       <div>
-      <button className="getPromptButton" onClick={this.showPrompt}> Get A Prompt </button>
       <Prompt
-      key={this.state.prompt._id}
-      prompt={this.state.prompt}
+      key={this.props.prompt._id}
+      prompt={this.props.prompt}
       deleteButton={this.deleteButton}
       deletePrompt={this.props.deletePrompt}/>
 

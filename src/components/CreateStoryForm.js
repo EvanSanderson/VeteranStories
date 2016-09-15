@@ -11,9 +11,9 @@ class CreateStoryForm extends Component {
     return(
       <div className="storyForm">
         <form onSubmit={(e) => this.submitStory(e)}>
-          <input
+          <textarea
             className="createStoryInput"
-            placeholder="Enter your story here"
+            placeholder="Enter your story here."
             type="text"
             ref="body" />
             <button className = "button" type="submit"> + Story </button>

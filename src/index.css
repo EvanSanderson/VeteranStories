@@ -12,29 +12,52 @@ body {
 
 .tags-enter.tags-enter-active{
   transform: translateX(0);
-  background-color: #C8C1C0;
+  background-color: #6A7D93;
 }
 
 .stories-enter {
-  background: #465362;
   transform: translateX(-120%);
   transition: 5s;
 }
 
 .stories-enter.stories-enter-active{
   transform: translateX(0);
-  background: #C8C1C0;
+}
+
+.stories-leave {
+  color: #6A7D93;
+  border-top: 10px solid #6A7D93;
+  border-bottom: 10px solid #6A7D93;
+  transition: 1s;
+}
+
+.stories-leave.stories-leave-active{
+  color:white;
+  border-top: 0px solid white;
+  border-bottom: 0px solid white;
 }
 
 .reads-enter {
   transform: translateX(-120%);
-  transition: 1s;
+  transition: 3s;
 }
 
 .reads-enter.reads-enter-active{
   transform: translateX(0);
 }
 
+.reads-leave {
+  color: #6A7D93;
+  border-top: 10px solid #6A7D93;
+  border-bottom: 10px solid #6A7D93;
+  transition: 1s;
+}
+
+.reads-leave.reads-leave-active{
+  color:white;
+  border-top: 0px solid white;
+  border-bottom: 0px solid white;
+}
 
 
 header {
@@ -53,8 +76,9 @@ border-radius: 10px;
 padding: 1%;
 margin-left: 1%;
 margin-top: 1em;
-color: white;
-background: #C8C1C0;
+color: #6A7D93;
+border-top: 10px solid #6A7D93;
+border-bottom: 10px solid #6A7D93;
 }
 
 .prompt {
@@ -63,13 +87,14 @@ background: #C8C1C0;
 
 
 .promptText {
-  background: #C8C1C0;
   padding: 1em;
-  color:white;
+  color:#6A7D93;
   display: inline-block;
   margin: 0 auto;
   margin-top: 2em;
   border-radius: 5%;
+  border-top: 10px solid #6A7D93;
+  border-bottom: 10px solid #6A7D93;
 }
 
 
@@ -78,6 +103,7 @@ background: #C8C1C0;
   border-radius: 10px;
   padding: .5em;
   color: white;
+  background: #465362;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -126,6 +152,8 @@ ul, menu, dir {
     border: 1px solid black;
     padding: 1em;
     border-radius: 10px;
+    background-color: #6A7D93;
+    color: white;
 }
 
 .addTag {
@@ -145,10 +173,15 @@ ul, menu, dir {
 }
 
 .read {
-  display: inline-block;
-  border: 2px solid black;
-  margin: 1em 1em;
-  padding: 1em;
+  text-align: center;
+display: inline-block;
+border-radius: 10px;
+padding: 1%;
+margin-left: 1%;
+margin-top: 1em;
+color: #6A7D93;
+border-top: 10px solid #6A7D93;
+border-bottom: 10px solid #6A7D93;
 }
 
 .searchForm {
@@ -198,12 +231,14 @@ ul, menu, dir {
   margin-left: 1em;
 }
 
+
 .button:hover {
   background: #80A1C1;
 }
 
 .getPromptButton {
-  margin-left: 40%;
+  margin-left: 20%;
+  margin-right: 20%;
   border: none;
   border-radius: 10px;
   padding: .5em;
@@ -211,10 +246,47 @@ ul, menu, dir {
   background: #465362;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
 }
 
+.showStoriesButton {
+  margin-left: 20%;
+  margin-right: 20%;
+  border: none;
+  border-radius: 10px;
+  padding: .5em;
+  color: white;
+  background: #465362;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
 .getPromptButton:hover {
   background: #80A1C1;
+}
+.showStoriesButton:hover {
+  background: #80A1C1;
+}
+
+input[type=text] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.promptTextBody:hover {
+  color:white;
+  background: #80A1C1;
+  border-radius: 10px;
+}
+
+.storyTextBody:hover{
+  color:white;
+  background: #80A1C1;
+  border-radius: 10px;
+}
+
+.headerText {
+  text-align: center;
 }
