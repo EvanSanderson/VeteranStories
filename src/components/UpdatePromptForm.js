@@ -17,11 +17,12 @@ class UpdatePromptForm extends Component {
     var promptText = this.state.prompt
     this.props.updatePrompt(promptText);
     this.state.prompt = "";
+    this.props.undoUpdate();
 
   }
   render(){
     return(
-      <form onSubmit={(e) => this.onUpdatePrompt(e)} >
+      <form className = "updateForm" onSubmit={(e) => this.onUpdatePrompt(e)} >
         <input
           onChange = {(e) => this.updateChange(e)}
           value={(this.state && this.state.prompt) || ''}

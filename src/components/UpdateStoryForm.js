@@ -12,11 +12,12 @@ class UpdateStoryForm extends Component {
       story: e.target.value
     })
   }
-  onUpdateStory = (e) => {
+  updateStory = (e) => {
     e.preventDefault();
     var storyText = this.state.story
     this.props.updateStory(storyText)
     this.state.story = "";
+    this.props.undoUpdateStory();
   }
   addTag = (e) => {
     e.preventDefault();
@@ -26,7 +27,7 @@ class UpdateStoryForm extends Component {
   render(){
     return(
       <div>
-      <form onSubmit={(e) => this.onUpdateStory(e)}>
+      <form onSubmit={(e) => this.updateStory(e)}>
         <input
           onChange = {(e) => this.storyChange(e)}
           value = {(this.state && this.state.story) || ''} />

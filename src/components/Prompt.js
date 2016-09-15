@@ -10,7 +10,8 @@ class Prompt extends Component {
     super()
     this.state = {
       prompt: [],
-      stories: []
+      stories: [],
+      viewPrompt: true
     }
   }
   componentDidMount(){
@@ -53,17 +54,26 @@ class Prompt extends Component {
       return "(delete)"
     }
   }
+  onUpdateClick= () => {
+    console.log("CLICKED")
+    this.setState({
+      viewPrompt: false
+    })
+  }
+  undoUpdate = () => {
+    this.setState({
+      viewPrompt:true
+    })
+  }
   render(){
     if(this.state.prompt.body !== undefined){
+        if(this.state.viewPrompt){
     return(
       <div className="prompt">
-        <p> {this.state.prompt.body} </p>
+        <p onClick={()=> this.onUpdateClick()}> {this.state.prompt.body} </p>
         <div className="deleteButton" onClick={() => this.props.deletePrompt(this.state.prompt)}>
           {this.showDeleteButton()}
         </div>
-        <UpdatePromptForm
-        prompt = {this.props.prompt}
-        updatePrompt = {this.updatePrompt}/>
         <div className ="createStoryForm">
         <CreateStoryForm
         createStory = {this.createStory} />
@@ -73,6 +83,14 @@ class Prompt extends Component {
         stories={this.props.prompt.stories} />
       </div>
     )
+  } else if(!this.state.viewPrompt){
+    return (
+      <UpdatePromptForm
+      prompt = {this.props.prompt}
+      updatePrompt = {this.updatePrompt}
+      undoUpdate = {this.undoUpdate} />
+  )
+  }
   }
   else {
     return(

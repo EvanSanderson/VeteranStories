@@ -9,7 +9,8 @@ class Story extends Component {
     super();
     this.state = {
       story: [],
-      tags: []
+      tags: [],
+      viewStory: true
     }
   }
   componentDidMount(){
@@ -53,30 +54,51 @@ class Story extends Component {
   renderTag = (key) => {
     return <Tag key={key} index={key} tag={this.state.tags[key]} />
   }
-
+  onUpdateStory = () => {
+    this.setState({
+      viewStory: false
+    })
+  }
+  undoUpdateStory = () => {
+    console.log("WORKING")
+    this.setState({
+      viewStory: true
+    })
+  }
+  showStoryBody = () => {
+    return (
+    <p onClick={(e)=>this.onUpdateStory()}>
+    {this.state.story.body}
+    </p>
+  )
+  }
+  showStoryUpdate = () => {
+    return(
+      <div>
+      <UpdateStoryForm
+      undoUpdateStory = {this.undoUpdateStory}
+      updateStory = {this.updateStory}
+      addTag = {this.addTag}/>
+      </div>
+    )
+  }
 
   render(){
     return(
       <div className="story">
-          <p>
-          {this.state.story.body}
-          </p>
+          {this.state.viewStory ? this.showStoryBody() : this.showStoryUpdate()}
           <h3> Tags </h3>
           <CSSTransitionGroup
               className="tags"
               component="ul"
               transitionName="tags"
               transitionEnterTimeout={1000}
-              transitionLeaveTimeout={1000}>
+              transitionLeaveTimeout={1}>
               {Object.keys(this.state.tags).map(this.renderTag)}
           </CSSTransitionGroup>
-            <UpdateStoryForm
-            updateStory = {this.updateStory}
-            addTag = {this.addTag}/>
-            <button className="deleteButton" onClick={() => this.props.deleteStory(this.state.story)}>Delete</button>
+          <button className="deleteButton" onClick={() => this.props.deleteStory(this.state.story)}>Delete</button>
       </div>
     )
-
   }
 }
 

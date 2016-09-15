@@ -43,7 +43,7 @@ class Stories extends Component {
           component="div"
           transitionName="stories"
           transitionEnterTimeout={5000}
-          transitionLeaveTimeout={5000}>
+          transitionLeaveTimeout={1}>
         {Object.keys(this.state.stories).map(this.renderStory)}
         </CSSTransitionGroup>
         </div>
